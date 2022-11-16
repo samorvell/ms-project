@@ -12,8 +12,8 @@ public class PaymentService {
     @Autowired
     private WorkerFeignClient workerFeignClient;
 
-    public Payment getPayment(long workrId, int days){
-        Worker worker = workerFeignClient.findById(workrId).getBody();
+    public Payment getPayment(long workerId, int days){
+        Worker worker = workerFeignClient.findById(workerId).getBody();
         return new Payment(worker.getName(), worker.getDailyIncome(), days);
     }
 
